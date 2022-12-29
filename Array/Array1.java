@@ -17,7 +17,15 @@
 // prob. 1  Rearrange an array such that arr[i] = i
             // Input : arr = {-1, -1, 6, 1, 9, 3, 2, -1, 4, -1}
             // Output : [-1, 1, 2, 3, 4, -1, 6, -1, -1, 9]
+        // Time :- O(n2)
+        // Space :- O(1)
 
+// prob. 2  Move all zeroes to end of array
+            // Input :  arr[] = {1, 2, 0, 4, 3, 0, 5, 0};
+            // Output : arr[] = {1, 2, 4, 3, 5, 0, 0, 0};
+        // Time :- n(log(n))
+        // Space :- O(1)
+import java.util.*;
 public class Array1 {
     public static void fixArray(int[] arr,int n){
         int temp=0;
@@ -42,11 +50,27 @@ public class Array1 {
             System.out.print(arr[i]+" ");
         }
     }
-    public static void main(String[] args){
-        int n, arr[] = { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
-            n = arr.length;
+    // First Function/Method End..................
+    
+    public static void moveAllZeroToEnd(int[] arr,int n){
+        Arrays.sort(arr);
+        System.out.println("Array after pushing all zeros End of the Array");
+        for(int i=n-1; i>=0; i--){
+            System.out.print(arr[i]+" ");
+        }
 
+    }
+    public static void main(String[] args){
+        int arr[] = { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
+        int n = arr.length;
         fixArray(arr, n);
+        System.out.println("");
+        System.out.println("");
+
+        
+        int arr2[] = {1, 2, 0, 4, 3, 0, 5, 0};
+        int n2 = arr2.length;
+        moveAllZeroToEnd(arr2, n2); 
     }
     
 }
