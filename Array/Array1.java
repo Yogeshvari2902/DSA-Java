@@ -35,6 +35,12 @@
         // Time :- O(n*log n)
         // Space :- O(n)
 
+// Prob. 4 Rearrange an array in maximum minimum form using Two Pointer Technique
+            // Input: arr[] = {1, 2, 3, 4, 5, 6, 7} 
+            // Output: arr[] = {7, 1, 6, 2, 5, 3, 4}
+        // Time :- O(n)
+        // Space :- O(n)
+
 import java.util.*;
 public class Array1 {
     public static void fixArray(int[] arr,int n){
@@ -93,8 +99,31 @@ public class Array1 {
         // Time :- O(n*log n)
         // Space :- O(n)
     }
-    // Second Function End..................
-    
+    // Third Function End..................
+
+    public static void reArrangingMaxMin(int[] arr, int n){
+        // Two Pointer
+        int ptr1=0, ptr2=n-1;
+        int temp[] = new int[n];
+        boolean flag = true;
+
+        for (int i = 0; i < n; i++) {
+            if (flag)
+                temp[i] = arr[ptr2--];
+            else
+                temp[i] = arr[ptr1++];
+  
+            flag = !flag;
+        }
+        System.out.println("Array after Rearranging");
+        for(int i=0; i<n; i++){
+            System.out.print(temp[i]+" ");
+        }
+        // Time :- O(n)
+        // Space :- O(n)
+    }
+     // Fourth Function End..................
+
     public static void main(String[] args){
         int arr[] = { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
         int n = arr.length;
@@ -112,6 +141,12 @@ public class Array1 {
         int arr3[] = {1, 3, 2, 2, 5};
         int n3 = arr3.length;
         reArrangingEvenOdd(arr3, n3);
+        System.out.println("");
+        System.out.println("");
+
+        int arr4[] = {1, 2, 3, 4, 5, 6, 7};
+        int n4 = arr4.length;
+        reArrangingMaxMin(arr4,n4);
     }
     
 }
