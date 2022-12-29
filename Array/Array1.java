@@ -41,6 +41,18 @@
         // Time :- O(n)
         // Space :- O(n)
 
+// Prob. 5 Segregate even and odd numbers | Set 3
+            // Input: arr[] = 1 9 5 3 2 6 7 11
+            // Output: 2 6 5 3 1 9 7 11
+        // Time : O(n)
+        // Space: O(1) 
+
+// Prob. 6 Reversal algorithm for Array rotation
+            // Input:  arr[] = {1, 2, 3, 4, 5, 6, 7}, d = 2
+            // Output: 3, 4, 5, 6, 7, 1, 2
+        // Time : O(N)
+        // Space: O(1)
+
 import java.util.*;
 public class Array1 {
     public static void fixArray(int[] arr,int n){
@@ -124,6 +136,79 @@ public class Array1 {
     }
      // Fourth Function End..................
 
+    public static void segregateEvenOdd(int[] arr, int n){
+        // Brute-Force Solution :
+        
+        // Time : O(n)
+        // Space: O(n) 
+        
+        // int idx=0;
+        // int A[]=new int[n];
+        // for(int i=0; i<n; i++){
+        //     if(arr[i]%2==0){
+        //         A[idx]=arr[i];
+        //         idx++;
+        //     }
+        // }
+        // for(int i=0; i<n; i++){
+        //     if(arr[i]%2!=0){
+        //         A[idx]=arr[i];
+        //         idx++;
+        //     }
+        // }
+
+        // Optimized Approach:
+
+        // Time : O(n)
+        // Space: O(1) 
+
+        int h = -1, j = 0;
+        while (j != n) {
+            if (arr[j] % 2 == 0)
+            {
+                h++;
+                int temp = arr[h];
+                arr[h] = arr[j];
+                arr[j] = temp;
+            }
+            j++;
+        }
+
+        for(int i=0; i<n; i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+    // Fifth Function End..................
+    
+    public static void leftRotate(int[] arr, int d){
+        if(d==0)
+            return;
+
+        int n = arr.length;
+        d = d % n;
+        reverseArray(arr,0,d-1);
+        reverseArray(arr,d,n-1);
+        reverseArray(arr,0,n-1);
+    }
+    static void reverseArray(int[]arr,int s,int e){
+        int temp;
+        while(s<e){
+            temp = arr[s];
+            arr[s] = arr[e];
+            arr[e] = temp;
+            s++;
+            e--;
+        }
+
+    }
+    static void  printArray(int[] arr){
+        for(int i=0; i<arr.length; i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+    // Sixth Function End..................
+
+
     public static void main(String[] args){
         int arr[] = { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
         int n = arr.length;
@@ -147,6 +232,22 @@ public class Array1 {
         int arr4[] = {1, 2, 3, 4, 5, 6, 7};
         int n4 = arr4.length;
         reArrangingMaxMin(arr4,n4);
+        System.out.println("");
+        System.out.println("");
+
+        int arr5[] = {1, 9, 5, 3, 2, 6, 7, 11};
+        int n5 = arr5.length;
+        segregateEvenOdd(arr5, n5);
+        System.out.println("");
+        System.out.println("");
+
+
+        int arr6[] = { 1, 2, 3, 4, 5, 6, 7 };
+        int d = 2;
+        leftRotate(arr6, d);
+        printArray(arr6);
+      
+
     }
     
 }
