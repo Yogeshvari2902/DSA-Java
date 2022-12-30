@@ -212,14 +212,14 @@ public class Array1 {
         // 9 1 3 5 7
         // 3 5 7 9 1
 
-    // public static void leftRotation(int arr[], int n, int k){
-    //     int mod = k % n;
-    //     System.out.println("Array after Rotating");
-    //     for (int i = 0; i <n-1; ++i)
-    //         System.out.print(arr[(i + mod) % n] + " ");
+    public static void leftRotation(int arr[], int n, int k){
+        int mod = k % n;
+        System.out.println("Array after Rotating");
+        for (int i = 0; i <n-1; ++i)
+            System.out.print(arr[(i + mod) % n] + " ");
  
-        // System.out.println();
-    // }
+        System.out.println();
+    }
 
     
 
@@ -230,55 +230,67 @@ public class Array1 {
     public static void kthSmallest(int[] arr, int K){
         Arrays.sort(arr);
         System.out.print("K'th smallest element is :- ");
-        System.out.println(arr[K - 1]);
+        System.out.print(arr[K - 1]);
 
         // Time Complexity: O(N log N)
         // Auxiliary Space: O(1) 
     }
 
+
+    // Prob. 9 Find the largest three distinct elements in an array
+                // Input: arr[] = {10, 4, 3, 50, 23, 90}
+                // Output: 90, 50, 23
+
+    public static void find3Largest(int[] arr,int n){
+        Arrays.sort(arr);
+        int check = 0;
+        int count = 1;
+        System.out.println("3 Largest Elememnts are: ");
+        for(int i=0; i<n; i++){
+            if(count<4){
+                if(check != arr[n-i]){
+                    System.out.print(arr[n-i]+" ");
+                    check = arr[n-i];
+                    count++;
+                }
+            }
+        }
+    }
     public static void main(String[] args){
         int arr[] = { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
         int n = arr.length;
         fixArray(arr, n);
-        System.out.println("");
-        System.out.println("");
-
+        System.out.println("\n");
 
         int arr2[] = {1, 2, 0, 4, 3, 0, 5, 0};
         int n2 = arr2.length;
         moveAllZeroToEnd(arr2, n2);
-        System.out.println("");
-        System.out.println("");
+        System.out.println("\n");
         
         int arr3[] = {1, 3, 2, 2, 5};
         int n3 = arr3.length;
         reArrangingEvenOdd(arr3, n3);
-        System.out.println("");
-        System.out.println("");
+        System.out.println("\n");
 
         int arr4[] = {1, 2, 3, 4, 5, 6, 7};
         int n4 = arr4.length;
         reArrangingMaxMin(arr4,n4);
-        System.out.println("");
-        System.out.println("");
+        System.out.println("\n");
 
         int arr5[] = {1, 9, 5, 3, 2, 6, 7, 11};
         int n5 = arr5.length;
         segregateEvenOdd(arr5, n5);
-        System.out.println("");
-        System.out.println("");
-
+        System.out.println("\n");
 
         int arr6[] = { 1, 2, 3, 4, 5, 6, 7 };
         int d = 2;
         leftRotate(arr6, d);
         printArray(arr6);
-        System.out.println("");
-        System.out.println("");
+        System.out.println("\n");
 
 
         // int arr7[] = { 1, 3, 5, 7, 9 };
-        // int n7 = arr.length;
+        // int n7 = arr.length-1;
         // int k = 2;
         // leftRotation(arr7, n7, k);
         // k = 3;
@@ -289,9 +301,14 @@ public class Array1 {
 
         int arr8 [] = {7, 10, 4, 3, 20, 15};
         int K = 3;
-        kthSmallest(arr8, K); 
+        kthSmallest(arr8, K);
+        System.out.println("\n");
       
-
+        int arr9[] = {10, 4, 3, 50, 23, 90};
+        int n9 = arr9.length-1;
+        find3Largest(arr9, n9);
+        System.out.println("\n");
+        
     }
     
 }
