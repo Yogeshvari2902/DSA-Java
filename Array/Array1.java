@@ -360,14 +360,31 @@ public class Array1 {
                 // Output: 12, 10, 9, 45, 2
 
     public static void printDistinct(int[] arr,int n){
-        Arrays.sort(arr);
+        // Arrays.sort(arr);
+        // System.out.print("Distinct Elememnts\n");
+        // for(int i=0; i<n; i++){
+        //     while(i<n-1 && arr[i]==arr[i+1]){
+        //         i++;
+        //     }
+        //     System.out.print(arr[i]+" ");
+        // }
+        // Time Complexity: O(n log n).
+        // Auxiliary Space: O(1)
+
+
+        HashSet<Integer> ss = new HashSet<>();
         System.out.print("Distinct Elememnts\n");
-        for(int i=0; i<n; i++){
-            while(i<n-1 && arr[i]==arr[i+1]){
-                i++;
+        for (int i=0; i<arr.length; i++)
+        {
+            // If not present, then put it in hashtable and print it
+            if (!ss.contains(arr[i]))
+            {
+                ss.add(arr[i]);
+                System.out.print(arr[i] + " ");
             }
-            System.out.print(arr[i]+" ");
         }
+        // Time Complexity: O(n).
+        // Auxiliary Space: O(n)
     }
 
     public static void main(String[] args){
