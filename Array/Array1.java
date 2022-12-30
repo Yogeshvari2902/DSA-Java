@@ -256,6 +256,105 @@ public class Array1 {
             }
         }
     }
+
+    // Prob. 10 Find Second largest element in an array
+                    // Input: arr[] = {12, 35, 1, 10, 34, 1}
+                    // Output: The second largest element is 34.
+
+    public static void secondLargest(int[] arr,int n){
+        if (n < 2){
+          System.out.printf("lnvalid Input ");
+          return;
+        }
+        Arrays.sort(arr);
+        System.out.println("The 2nd Largest Elelment is: ");
+        for(int i=n-2; i>=0; i--){
+            if(arr[i]!=arr[n-1]){
+                System.out.print(arr[i]);
+                return;
+            }
+            else{
+                System.out.print("There is no 2nd Largest Elelment");
+            }
+        }
+        // Time Complexity: O(n log n). 
+            // The time required to sort the array is O(n log n).
+        // Auxiliary space: O(1). 
+            // As no extra space is required.
+    }
+
+    // Prob. 11 Sort an array in wave form
+                    //Input:  arr[] = {10, 5, 6, 3, 2, 20, 100, 80}
+                    // Output: arr[] = {10, 5, 6, 2, 20, 3, 100, 80}
+
+    static void swap(int arr[], int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+    public static void sortInWave(int arr[], int n){
+        // Traverse all even elements
+        for(int i = 0; i < n-1; i+=2){
+            //swap odd and even positions
+            if(i > 0 && arr[i - 1] > arr[i])
+              swap(arr, i, i-1);
+              if(i < n-1 && arr[i + 1] > arr[i])
+              swap(arr, i, i+1);
+        }
+        // Time Complexity: O(N)
+        // Auxiliary Space: O(1)
+    }
+
+    // Prob. 12 Sort an array which contain 1 to n values
+                // Input : arr[] = {10, 7, 9, 2, 8, 3, 5, 4, 6, 1};
+                // Output : 1 2 3 4 5 6 7 8 9 10
+    public static void sortArray(int[] arr){
+        int i = 0;
+        while (i < arr.length) {
+            // Finding the correct index
+            int cor = arr[i] - 1;
+ 
+            // Element index and value not match
+            // then swapping
+            if (arr[cor] != arr[i]) {
+                swap(arr, i, cor);
+            }
+            else {
+                i++;
+            }
+        }
+        // Time Complexity: O(n)
+        // Auxiliary Space: O(1)
+    }          
+    
+    // Prob. 13 Count the number of possible triangles
+                // Input: arr= {4, 6, 3, 7}
+                // Output: 3
+
+    public static void findTriangles(int[] arr){
+        // Two Pointer  It is effient Approach
+        // We can also solve using 3 loops but it incresease time complexity O(N3)
+        int n = arr.length;
+        Arrays.sort(arr);
+        int count = 0;
+        for(int i=n-1; i>=1; i--){
+            int ptr1=0, ptr2=i-1;
+            while(ptr1 < ptr2){
+                if(arr[ptr1]+arr[ptr2]>arr[i]){
+                    count+=ptr2-ptr1;
+                    ptr2--;
+                }
+                else{
+                    ptr1++;
+                }
+            }
+        }
+        System.out.print("No of possible Traingles: \n"+ count);
+        // Time complexity: O(N2)
+        // Auxiliary Space: O(1)
+
+    } 
+
     public static void main(String[] args){
         int arr[] = { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
         int n = arr.length;
@@ -308,6 +407,29 @@ public class Array1 {
         int n9 = arr9.length-1;
         find3Largest(arr9, n9);
         System.out.println("\n");
+
+        int arr10[] = {12, 35, 1, 10, 34, 1};
+        int n10 = arr10.length;
+        secondLargest(arr10, n10);
+        System.out.println("\n");
+
+        int arr11[] = {10, 5, 6, 3, 2, 20, 100, 80};
+        int n11 = arr.length-1;
+        sortInWave(arr11,n11);
+        System.out.println("Sorted Array in Wave form");
+        for(int i : arr11){
+            System.out.print(i+" ");
+        }
+        System.out.println("\n");
+
+        int arr12[] = {10, 7, 9, 2, 8, 3, 5, 4, 6, 1};
+        sortArray(arr12);
+        System.out.println("Sorted Array");
+        System.out.print(Arrays.toString(arr12));
+        System.out.println("\n");
+
+        int arr13[] = { 10, 21, 22, 100, 101, 200, 300 };
+        findTriangles(arr13);
         
     }
     
