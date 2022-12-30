@@ -352,8 +352,23 @@ public class Array1 {
         System.out.print("No of possible Traingles: \n"+ count);
         // Time complexity: O(N2)
         // Auxiliary Space: O(1)
-
     } 
+
+    
+    // Prob. 14 Print All Distinct Elements of a given integer array
+                // Input: arr[] = {12, 10, 9, 45, 2, 10, 10, 45}
+                // Output: 12, 10, 9, 45, 2
+
+    public static void printDistinct(int[] arr,int n){
+        Arrays.sort(arr);
+        System.out.print("Distinct Elememnts\n");
+        for(int i=0; i<n; i++){
+            while(i<n-1 && arr[i]==arr[i+1]){
+                i++;
+            }
+            System.out.print(arr[i]+" ");
+        }
+    }
 
     public static void main(String[] args){
         int arr[] = { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
@@ -430,6 +445,11 @@ public class Array1 {
 
         int arr13[] = { 10, 21, 22, 100, 101, 200, 300 };
         findTriangles(arr13);
+        System.out.println("\n");
+
+        int arr14[] = {6, 10, 5, 4, 9, 120, 4, 6, 10};
+        int n14 = arr14.length;
+        printDistinct(arr14, n14);
         
     }
     
