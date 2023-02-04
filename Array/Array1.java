@@ -387,6 +387,43 @@ public class Array1 {
         // Auxiliary Space: O(n)
     }
 
+    // Prob. 15 Find the element that appears once in an array where every other element appears twice
+                // Input:  arr[] = {2, 3, 5, 4, 5, 3, 4}
+                // Output: 2
+                
+    public static int eleAppearsOnce(int[] arr,int n){
+        for (int i = 0; i<n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+              if (arr[i] == arr[j]) {
+                count++;
+              }
+            }
+            if (count == 1) {
+              return arr[i];
+            }
+          }
+          // if no element exist at most once
+          return -1;
+    }
+
+    // Prob. 16 Find Subarray with given sum | Set 1 (Non-negative Numbers)
+                // Input: arr[] = {1, 4, 20, 3, 10, 5}, sum = 33
+                // Output: Sum found between indexes 2 and 4
+
+    public static void subarrayWithGivenSum(int[] arr,int sum){
+        int n = arr.length, start = 0,currSum = 0;
+        for(int i=0; i<n; i++){
+            currSum+=arr[i];
+            if(currSum > sum){
+                currSum -= arr[start];
+                start++;
+            }
+            if(currSum == sum){
+                System.out.print("");
+            }
+        }
+    }
     public static void main(String[] args){
         int arr[] = { -1, -1, 6, 1, 9, 3, 2, -1, 4, -1 };
         int n = arr.length;
@@ -467,7 +504,18 @@ public class Array1 {
         int arr14[] = {6, 10, 5, 4, 9, 120, 4, 6, 10};
         int n14 = arr14.length;
         printDistinct(arr14, n14);
+        System.out.println("\n");
+
+        int arr15[] = {2, 3, 5, 4, 5, 3, 4};
+        int n15 = arr15.length;
+        System.out.println("Element Once in an Array");
+        System.out.print(eleAppearsOnce(arr15, n15));
+        System.out.println("\n");
         
+
+        int arr16[] = {1, 4, 20, 3, 10, 5};
+        int n16 = arr.length;
+        // printArray(arr16,n16);
     }
     
 }
