@@ -1,5 +1,5 @@
 // package DSA-Java.Mock Evaluations;
-
+import java.util.*;
 public class Mock1 {
 
 // Prob.1  "First bigger Ended"
@@ -34,8 +34,41 @@ public class Mock1 {
 // Sample Output 1
 // 66
 // 63
+    public static void firstBagger(int[] arr,int n){
+        Scanner sc=new Scanner(System.in);
+        int s=sc.nextInt();
+            
+        while(s-- >0){
+            int t=sc.nextInt();
+            int min = 10000000;
+            int u=0;
+            for(int i=0;i<n;i++){
+                if(arr[i]>t){
+                    if(min > arr[i]){
+                        min=arr[i];
+                    }
+                u=1;
+                }
+            }
+            if(u==0){
+                System.out.println(-1);
+            }
+            else{
+                System.out.println(min);
+            }
+        }
+    }
 
     public static void main(String[] args){
-
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];            
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        firstBagger(arr,n);
+           
     }
 }
+    
+
