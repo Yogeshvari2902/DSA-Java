@@ -36,8 +36,7 @@ public class Mock1 {
 // 63
     public static void firstBagger(int[] arr,int n){
         Scanner sc=new Scanner(System.in);
-        int s=sc.nextInt();
-            
+        int s=sc.nextInt();        
         while(s-- >0){
             int t=sc.nextInt();
             int min = 10000000;
@@ -60,13 +59,10 @@ public class Mock1 {
     }
 
     public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        int n = sc.nextInt();
-        int arr[] = new int[n];            
-        for(int i=0;i<n;i++){
-            arr[i]=sc.nextInt();
-        }
-        firstBagger(arr,n);
+        // Scanner sc=new Scanner(System.in);
+        int arr1[] = {13, 89, 81, 66, 81, 63, 71, 76, 73, 81};            
+        int n1 = arr1.length;
+        firstBagger(arr1,n1);
            
     }
 }
