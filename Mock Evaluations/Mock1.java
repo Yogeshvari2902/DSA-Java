@@ -97,48 +97,51 @@ public class Mock1 {
 
 
     public static void main(String[] args){
-        // Scanner sc=new Scanner(System.in);
+        Scanner sc=new Scanner(System.in);
         int arr1[] = {13, 89, 81, 66, 81, 63, 71, 76, 73, 81};            
         int n1 = arr1.length;
         firstBagger(arr1,n1);
 
-        Scanner sc=new Scanner(System.in);
-        int t=3;
-        while(t-->0){
-            int s=2;
-            int n=s*6;
-            int aa[]=new int[n];
-            int a=0,v=0,b=0;
-            boolean flag=true;
-            for(int i=0;i<n;i++)
-            aa[i]=sc.nextInt();
-            for(int i=0;i<n;i++){
-                if(flag){
-                    a+=aa[i];
-                    b++;
-                    if(aa[i]==1||aa[i]==3)
-                    flag=false;
-                }
-                else {
-                    v+=aa[i];
-                    b++;
-                    if(aa[i]==1||aa[i]==3)
-                    flag=true;
-                }
-                if(b%6==0){
-                    if(flag)
-                    flag=false;
-                    else
-                    flag=true;
-                }
-            }
-            if(v==a)
-            System.out.println("Tie");
-            else if(v>a)
-             System.out.println("Virat Kohli");
-            else
-              System.out.println("AB de Villiers");
-        }
+        // Problem 2 solution
+        // Scanner sc=new Scanner(System.in);
+        // int t=3;
+        // while(t-->0){
+        //     int s=2;
+        //     int n=s*6;
+        //     int aa[]=new int[n];
+        //     int a=0,v=0,b=0;
+        //     boolean flag=true;
+        //     for(int i=0;i<n;i++)
+        //     aa[i]=sc.nextInt();
+        //     for(int i=0;i<n;i++){
+        //         if(flag){
+        //             a+=aa[i];
+        //             b++;
+        //             if(aa[i]==1||aa[i]==3)
+        //             flag=false;
+        //         }
+        //         else {
+        //             v+=aa[i];
+        //             b++;
+        //             if(aa[i]==1||aa[i]==3)
+        //             flag=true;
+        //         }
+        //         if(b%6==0){
+        //             if(flag)
+        //             flag=false;
+        //             else
+        //             flag=true;
+        //         }
+        //     }
+        //     if(v==a)
+        //     System.out.println("Tie");
+        //     else if(v>a)
+        //      System.out.println("Virat Kohli");
+        //     else
+        //       System.out.println("AB de Villiers");
+        // }
+
+       
            
     }
 }
