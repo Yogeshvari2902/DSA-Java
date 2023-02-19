@@ -95,6 +95,28 @@ public class Mock1 {
 // Virat Kohli
 // Tie
 
+// Problem 3. Square Root Sorting
+private static int[] find(int[] aa) {
+    int n = aa.length;
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            int x = (int) Math.sqrt(Math.abs(aa[j]));
+            int y = (int) Math.sqrt(Math.abs(aa[j + 1]));
+            if (x == y) {
+                if (aa[j] > aa[j + 1]) {
+                    int a = aa[j];
+                    aa[j] = aa[j + 1];
+                    aa[j + 1] = a;
+                }
+            } else if (x > y) {
+                int a = aa[j];
+                aa[j] = aa[j + 1];
+                aa[j + 1] = a;
+            }
+        }
+    }
+    return aa;
+}
 
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
@@ -141,7 +163,17 @@ public class Mock1 {
         //       System.out.println("AB de Villiers");
         // }
 
-       
+        int t3 = 2;
+        while (t3--> 0) {
+            int n3 = 2;
+            int[] arr = {3,4,9};
+            arr = find(arr);
+            for (int i : arr) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
+        sc.close();
            
     }
 }
